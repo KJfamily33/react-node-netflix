@@ -4,7 +4,7 @@ import { css, jsx } from '@emotion/core'
 import Button from './Button'
 import wallpaper from '../img/wallpaper.jpg'
 import logo from '../img/logo.png'
-import slider from '../img/slider.jpg'
+import ContentRow from './ContentRow'
 
 /**
  * @function Jumbotron
@@ -23,7 +23,7 @@ const Jumbotron = () => (
       <Button icon="info-circle">More Info</Button>
     </div>
 
-    <img className="slider" src={slider} />
+    <ContentRow bg={false} />
   </div>
 )
 
@@ -34,11 +34,11 @@ const JumbotronCSS = css`
   background-size: cover;
   width: 100%;
   height: 98vh;
-  padding-left: 60px;
   top: 0;
 
   .synopsis {
     padding-top: 200px;
+    padding-left: 60px;
     max-width: 500px;
     color: white;
 
@@ -51,11 +51,9 @@ const JumbotronCSS = css`
     }
   }
 
-  .slider {
-    // height: 125px;
+  .ContentRow {
     position: absolute;
     bottom: 20px;
-    width: calc(100% - 60px);
   }
 `
 export default Jumbotron
