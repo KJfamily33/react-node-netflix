@@ -13,7 +13,7 @@ If your browser does not automatically open, visit `http://localhost:8080`
 
 ## Demo
 
-Here's what is currently working. [Demo]()
+Here's what is currently working. [Demo](https://dzuz14.github.io/react-node-netflix/)
 
 ## YouTube
 
