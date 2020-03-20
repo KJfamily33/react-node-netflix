@@ -79,16 +79,11 @@ const ContentRow = ({ category, setActive }) => {
 }
 
 const ContentBlock = styled.div`
-  position: relative;
+  position: relative; // Uncomment this to see why we need it.
   flex: calc(18vw - 4px);
   flex-shrink: 0;
   height: 9.5vw;
   margin-right: 4px;
-  z-index: 2;
-
-  &:hover {
-    cursor: pointer;
-  }
 
   .content {
     position: absolute;
@@ -97,10 +92,11 @@ const ContentBlock = styled.div`
     height: 100%;
     width: 100%;
     justify-content: center;
-    transition: all ease 0.2s;
+    transition: background-color ease 0.2s;
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.65);
+      cursor: pointer;
     }
 
     .Icon {
@@ -120,8 +116,7 @@ const ContentBlock = styled.div`
   img {
     height: 100%;
     width: 100%;
-    z-index: 1;
-    pointer-events: none;
+    pointer-events: none; // Very important!
   }
 `
 
