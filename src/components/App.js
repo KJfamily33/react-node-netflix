@@ -59,7 +59,6 @@ const App = () => {
           category={categories[0]}
           active={activeRow === categories[0]}
           setActive={setActive}
-          bg={false}
         />
       </Jumbotron>
 
@@ -117,7 +116,6 @@ const GlobalCSS = css`
 
   body {
     background: #151515;
-    overflow-x: hidden;
   }
 
   a {

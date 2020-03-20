@@ -16,7 +16,7 @@ const content = [one, two, three, four, five, six]
 /**
  * @function ContentRow
  */
-const ContentRow = ({ bg, category, setActive }) => {
+const ContentRow = ({ category, setActive }) => {
   const [hovered, setHovered] = useState(false)
 
   const handleHover = useCallback(e => {
@@ -31,11 +31,15 @@ const ContentRow = ({ bg, category, setActive }) => {
   }, [])
 
   return (
-    <div className="ContentRow">
+    <div
+      className="ContentRow"
+      css={css`
+        padding-left: 60px;
+        overflow-x: hidden;
+      `}
+    >
       <div
         css={css`
-          padding-left: 60px;
-
           h2 {
             margin: 20px 0 10px;
             color: white;
@@ -45,7 +49,6 @@ const ContentRow = ({ bg, category, setActive }) => {
             display: flex;
             width: 100%;
             position: relative;
-            background: ${bg ? '#151515' : 'none'};
           }
         `}
       >
@@ -121,9 +124,5 @@ const ContentBlock = styled.div`
     pointer-events: none;
   }
 `
-
-ContentRow.defaultProps = {
-  bg: true
-}
 
 export default ContentRow
