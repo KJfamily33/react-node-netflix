@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { css, jsx } from '@emotion/core'
 import netflixLogo from '../img/netflix-logo.png'
+import Icon from './Icon'
 
 const leftLinks = ['Home', 'TV Shows', 'Movies', 'Latest', 'My List']
 
@@ -56,14 +57,10 @@ const Navbar = () => {
 
       <ul className="right">
         <li>
-          <a href="/">
-            <i className="fa fa-search" aria-hidden="true"></i>
-          </a>
+          <Icon type="search" />
         </li>
         <li>
-          <a href="/">
-            <i className="fa fa-bell-o" aria-hidden="true"></i>
-          </a>
+          <Icon type="bell-o" />
         </li>
       </ul>
     </nav>
@@ -101,7 +98,9 @@ const NavbarCSS = css`
   }
 
   ul.right {
-    i {
+    .Icon {
+      color: white;
+      cursor: pointer;
       font-size: 22px;
     }
   }
