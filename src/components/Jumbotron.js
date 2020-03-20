@@ -4,12 +4,11 @@ import { css, jsx } from '@emotion/core'
 import Button from './Button'
 import wallpaper from '../img/wallpaper.jpg'
 import logo from '../img/logo.png'
-import ContentRow from './ContentRow'
 
 /**
  * @function Jumbotron
  */
-const Jumbotron = () => (
+const Jumbotron = ({ children }) => (
   <div css={JumbotronCSS}>
     <div className="synopsis">
       <img src={logo} />
@@ -23,7 +22,7 @@ const Jumbotron = () => (
       <Button icon="info-circle">More Info</Button>
     </div>
 
-    <ContentRow bg={false} />
+    {children}
   </div>
 )
 
@@ -46,8 +45,9 @@ const JumbotronCSS = css`
       width: 100%;
     }
 
-    i {
+    .Icon {
       margin-right: 10.5px;
+      font-size: 18px;
     }
   }
 

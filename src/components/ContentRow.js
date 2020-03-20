@@ -1,108 +1,126 @@
 /** @jsx jsx */
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
+import styled from '@emotion/styled'
 import { css, jsx } from '@emotion/core'
+import Icon from './Icon'
 
-import one from '../img/1.jpg'
-import two from '../img/2.jpg'
-import three from '../img/3.jpg'
-import four from '../img/4.jpg'
-import five from '../img/5.jpg'
-import six from '../img/6.jpg'
+import one from '../img/one.jpg'
+import two from '../img/two.jpg'
+import three from '../img/three.jpg'
+import four from '../img/four.jpg'
+import five from '../img/five.jpg'
+import six from '../img/six.jpg'
 
-const ContentRow = ({ bg }) => {
-  const [nav, setNav] = useState(false)
+const content = [one, two, three, four, five, six]
 
-  const handleNav = useCallback(() => {
-    nav ? setNav(false) : setNav(true)
-  }, [nav])
+/**
+ * @function ContentRow
+ */
+const ContentRow = ({ bg, category, setActive }) => {
+  const [hovered, setHovered] = useState(false)
+
+  const handleHover = useCallback(e => {
+    e.type === 'mouseenter'
+      ? setHovered(e.target.getAttribute('data-img'))
+      : setHovered(false)
+  }, [])
+
+  const getPos = useCallback(e => {
+    const pos = e.target.parentElement.getBoundingClientRect()
+    setActive({ category, pos })
+  }, [])
 
   return (
-    <div
-      className="ContentRow"
-      css={css`
-        display: flex;
-        width: 100%;
-        position: relative;
-        background: ${bg ? '#151515' : 'none'};
-        padding-left: 60px;
-        ${bg && 'margin: 60px 0;'}
+    <div className="ContentRow">
+      <div
+        css={css`
+          padding-left: 60px;
 
-        h2 {
-          color: white;
-          margin: 0;
-        }
-
-        h2.row-title {
-          position: absolute;
-          top: -40px;
-        }
-
-        .nav {
-          position: absolute;
-          right: 0;
-          height: 100%;
-          width: 5%;
-          background: ${nav ? 'rgba(0, 0, 0, 0.6)' : 'none'};
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-
-          i {
+          h2 {
+            margin: 20px 0 10px;
             color: white;
-            padding-left: 8px;
           }
-        }
-      `}
-    >
-      <h2 className="row-title">Title</h2>
 
-      {[one, two, three, four, five, six].map((img, i) => (
-        <div
-          css={css`
+          .block-wrapper {
+            display: flex;
+            width: 100%;
             position: relative;
-            flex: calc(19% - 4px);
-            flex-shrink: 0;
-            height: 130px;
-            margin-right: 4px;
-            transition: all ease 0.25s;
-            z-index: 99;
+            background: ${bg ? '#151515' : 'none'};
+          }
+        `}
+      >
+        <h2>{category}</h2>
 
-            &:hover {
-              transform: scale(1.3);
-              cursor: pointer;
-              z-index: 199;
-            }
+        <div className="block-wrapper">
+          {content.map(img => (
+            <ContentBlock
+              key={img}
+              data-img={img}
+              onMouseEnter={handleHover}
+              onMouseLeave={handleHover}
+            >
+              {img === hovered && (
+                <div className="content">
+                  <Icon type="play" />
+                  <Icon onClick={getPos} type="info-circle" />
+                </div>
+              )}
 
-            .content {
-              position: absolute;
-              z-index: -10;
-              padding: 20px;
-            }
-
-            img {
-              height: 100%;
-              width: 100%;
-              z-index: -20;
-            }
-          `}
-          onMouseEnter={() => {}}
-        >
-          <div>
-            <div className="content">
-              <h2>Yolo</h2>
-            </div>
-            <img key={i} src={img} />
-          </div>
+              <img src={img} />
+            </ContentBlock>
+          ))}
         </div>
-      ))}
-
-      <div className="nav" onMouseEnter={handleNav} onMouseLeave={handleNav}>
-        {nav && <i class="fa fa-angle-right fa-3x" aria-hidden="true"></i>}
       </div>
     </div>
   )
 }
+
+const ContentBlock = styled.div`
+  position: relative;
+  flex: calc(18vw - 4px);
+  flex-shrink: 0;
+  height: 9.5vw;
+  margin-right: 4px;
+  z-index: 2;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .content {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    transition: all ease 0.2s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.65);
+    }
+
+    .Icon {
+      font-size: 32px;
+    }
+
+    .Icon:first-of-type {
+      color: red;
+      margin-right: 25px;
+    }
+
+    .Icon:last-of-type {
+      color: white;
+    }
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+`
 
 ContentRow.defaultProps = {
   bg: true
