@@ -6,8 +6,8 @@ If you have any problems running this on your machine, just post an issue here, 
 
 ## Use
 
-- `git clone https://github.com/DZuz14/react-hacker.git`
-- `cd react-hacker`
+- `git clone https://github.com/DZuz14/react-node-netflix.git`
+- `cd react-node-netflix`
 - `npm i`
 - `npm start`
 
