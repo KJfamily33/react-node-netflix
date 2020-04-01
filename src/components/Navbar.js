@@ -77,27 +77,22 @@ const NavbarCSS = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   ul {
     display: flex;
     align-items: center;
   }
-
   li {
     margin-right: 20px;
   }
-
   a {
     font-size: 15px;
     letter-spacing: 0.5px;
     color: #e5e5e5;
   }
-
   a.active {
     color: white;
     font-weight: 500;
   }
-
   ul.right {
     .Icon {
       color: white;

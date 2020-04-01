@@ -1,11 +1,10 @@
-/** @jsx jsx */
 import React, { useState, useEffect, createRef } from 'react'
-import { Global, css, jsx } from '@emotion/core'
+import { Global, css } from '@emotion/core'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Jumbotron from './Jumbotron'
 import ContentRow from './ContentRow'
-import DetailPane from './DetailPane'
+import DetailPane from './DetailPane/DetailPane'
 
 const initialRow = {
   category: '',
@@ -35,10 +34,6 @@ const App = () => {
 
   const navRef = createRef()
 
-  const setActive = activeRow => {
-    activeRow.category ? setActiveRow(activeRow) : setActiveRow(initialRow)
-  }
-
   useEffect(() => {
     if (!category) return
     const navHeight = navRef.current.offsetHeight
@@ -49,6 +44,10 @@ const App = () => {
       behavior: 'smooth'
     })
   }, [category])
+
+  const setActive = activeRow => {
+    activeRow.category ? setActiveRow(activeRow) : setActiveRow(initialRow)
+  }
 
   return (
     <>
@@ -63,7 +62,11 @@ const App = () => {
         <ContentRow key={category} category={category} setActive={setActive} />
       ))}
 
-      <DetailPane category={category} pos={bottom} setActive={setActive} />
+      <DetailPane
+        category={category}
+        top={bottom + window.scrollY}
+        setActive={setActive}
+      />
       <Footer />
     </>
   )
@@ -116,8 +119,10 @@ const GlobalCSS = css`
     letter-spacing: 0.4px;
   }
 
-  i {
+  .Icon {
     font-size: 18.5px;
+    cursor: pointer;
+    color: white;
   }
 `
 

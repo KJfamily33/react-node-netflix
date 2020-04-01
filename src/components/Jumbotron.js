@@ -40,12 +40,17 @@ const JumbotronCSS = css`
     padding-left: 60px;
     max-width: 500px;
     color: white;
+    padding-left: 60px;
 
     img {
       width: 100%;
     }
 
+<<<<<<< HEAD
     .Icon {
+=======
+   .Icon {
+>>>>>>> part-3
       margin-right: 10.5px;
       font-size: 18px;
     }
