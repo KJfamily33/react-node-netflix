@@ -4,12 +4,12 @@ import { css, jsx } from '@emotion/core'
 import ContentBlock from '../ContentBlock'
 import Icon from '../Icon'
 
-import one from '../../img/one.jpg'
-import two from '../../img/two.jpg'
-import three from '../../img/three.jpg'
-import four from '../../img/four.jpg'
+import episodeone from '../../img/episodeone.jpg'
+import episodetwo from '../../img/episodetwo.jpg'
+import episodethree from '../../img/episodethree.jpg'
+import episodefour from '../../img/episodefour.jpg'
 
-const EPISODES = [one, two, three, four]
+const EPISODES = [episodeone, episodetwo, episodethree, episodefour]
 
 /**
  * @function Episodes
@@ -22,12 +22,11 @@ const Episodes = () => (
           <Icon type="play" />
         </ContentBlock>
 
-        <p>Episode {i}</p>
+        <p>Episode {++i}</p>
 
         <p>
-          This engaging documentary series shares the surprising backstories of
-          familiar institutions like the Pentagon, West Point and the Playboy
-          Mansion.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </div>
     ))}
