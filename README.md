@@ -19,6 +19,6 @@ Here's what is currently working. [Demo](https://dzuz14.github.io/react-node-net
 
 If you are here from the YouTube tutorials, here are the different branches:
 
-- [Part 1](https://github.com/DZuz14/react-node-netflix/tree/part-1)
-- [Part 2](https://github.com/DZuz14/react-node-netflix/tree/part-2)
-- [Part 3](https://github.com/DZuz14/react-node-netflix/tree/part-3)
+- [Part 1 Branch](https://github.com/DZuz14/react-node-netflix/tree/part-1)[Video](https://www.youtube.com/watch?v=5FfZkowBz-s)
+- [Part 2 Branch](https://github.com/DZuz14/react-node-netflix/tree/part-2)[Video](https://www.youtube.com/watch?v=NHFZvwDO8e0)
+- [Part 3 Branch](https://github.com/DZuz14/react-node-netflix/tree/part-3)
