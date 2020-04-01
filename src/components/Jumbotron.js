@@ -46,11 +46,7 @@ const JumbotronCSS = css`
       width: 100%;
     }
 
-<<<<<<< HEAD
-    .Icon {
-=======
    .Icon {
->>>>>>> part-3
       margin-right: 10.5px;
       font-size: 18px;
     }
