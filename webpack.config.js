@@ -2,7 +2,7 @@ module.exports = {
   mode: 'development',
   entry: './src/index.js',
   devServer: {
-    contentBase: './dev',
+    contentBase: './dist',
     hot: true
   },
   module: {
@@ -16,6 +16,6 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: `${__dirname}`
+    path: `${__dirname}/dist`
   }
 }
