@@ -1,14 +1,15 @@
 /** @jsx jsx */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, forwardRef } from 'react'
 import { css, jsx } from '@emotion/core'
 import netflixLogo from '../img/netflix-logo.png'
+import Icon from './Icon'
 
 const leftLinks = ['Home', 'TV Shows', 'Movies', 'Latest', 'My List']
 
 /**
  * @function Navbar
  */
-const Navbar = () => {
+const Navbar = forwardRef((props, ref) => {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -24,6 +25,7 @@ const Navbar = () => {
 
   return (
     <nav
+      ref={ref}
       css={[
         NavbarCSS,
         scrolled
@@ -56,19 +58,15 @@ const Navbar = () => {
 
       <ul className="right">
         <li>
-          <a href="/">
-            <i className="fa fa-search" aria-hidden="true"></i>
-          </a>
+          <Icon type="search" />
         </li>
         <li>
-          <a href="/">
-            <i className="fa fa-bell-o" aria-hidden="true"></i>
-          </a>
+          <Icon type="bell-o" />
         </li>
       </ul>
     </nav>
   )
-}
+})
 
 const NavbarCSS = css`
   position: fixed;
@@ -79,29 +77,26 @@ const NavbarCSS = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   ul {
     display: flex;
     align-items: center;
   }
-
   li {
     margin-right: 20px;
   }
-
   a {
     font-size: 15px;
     letter-spacing: 0.5px;
     color: #e5e5e5;
   }
-
   a.active {
     color: white;
     font-weight: 500;
   }
-
   ul.right {
-    i {
+    .Icon {
+      color: white;
+      cursor: pointer;
       font-size: 22px;
     }
   }
