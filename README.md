@@ -1,6 +1,6 @@
-# React Hacker
+# React Node Netflix
 
-A simple React starter that's perfect for messing around. Comes with Babel, Emotion CSS in JS, ESlint, and Prettier.
+Example of Netflix's Browse Page built with React Hooks & Node.js. I'm currently still working on part 3, whatever I have done is the same code you see on the master branch.
 
 ## Use
 
@@ -21,4 +21,4 @@ If you are here from the YouTube tutorials, here are the different branches:
 
 - [Part 1](https://github.com/DZuz14/react-node-netflix/tree/part-1)
 - [Part 2](https://github.com/DZuz14/react-node-netflix/tree/part-2)
-- [Part 3](https://github.com/DZuz14/react-node-netflix/tree/part-2)
+- [Part 3](https://github.com/DZuz14/react-node-netflix/tree/part-3)
