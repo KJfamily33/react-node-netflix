@@ -21,3 +21,4 @@ If you are here from the YouTube tutorials, here are the different branches:
 
 - [Part 1](https://github.com/DZuz14/react-node-netflix/tree/part-1)
 - [Part 2](https://github.com/DZuz14/react-node-netflix/tree/part-2)
+- [Part 3](https://github.com/DZuz14/react-node-netflix/tree/part-2)
